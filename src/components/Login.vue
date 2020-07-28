@@ -7,17 +7,17 @@
   <img id="imglogo" src="../assets/logo.png" alt="">
 </div>
     <div id="biaoge">
-      <el-form ref="form" :model="form" label-width="50px">
-        <el-form-item>
-          <el-input v-model="form.name1" width="50"></el-input>
+      <el-form ref="form" :model="form" label-width="50px" :rules="rules" >
+        <el-form-item prop="nameForm">
+          <el-input  v-model="form.name1" width="50" prefix-icon="el-icon-user-solid" ></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input v-model="form.name2"></el-input>
+        <el-form-item prop="namePassword">
+          <el-input v-model="form.name2" prefix-icon="el-icon-loading"></el-input>
         </el-form-item>
       </el-form>
       <el-row id="button">
-        <el-button type="success">登录</el-button>
-        <el-button type="info">重置</el-button>
+        <el-button type="success" icon="el-icon-check">登录</el-button>
+        <el-button type="info" >重置</el-button>
 
       </el-row>
     </div>
@@ -42,6 +42,16 @@
           type: [],
           resource: '',
           desc: ''
+        },
+        rules: {
+          nameForm: [
+            { required: true, message: '请输入用户名称', trigger: 'blur' },
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+          ],
+          namePassword: [
+            { required: true, message: '请输入用户名称', trigger: 'blur' },
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+          ],
         }
       }
     },
