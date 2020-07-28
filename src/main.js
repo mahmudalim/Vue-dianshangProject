@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Element from 'element-ui'
+// import less from 'less-loader'
+import './assets/css/global.css'
+import './plugins/element.js'
 
 Vue.config.productionTip = false
 
@@ -10,6 +14,8 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  Element,
+  // less,
   components: { App },
   template: '<App/>'
 })
