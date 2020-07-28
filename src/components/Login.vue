@@ -49,8 +49,8 @@
             { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
           ],
           namePassword: [
-            { required: true, message: '请输入用户名称', trigger: 'blur' },
-            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+            { required: true, message: '请输入密码', trigger: 'blur' },
+            { min: 3, max: 10, message: '长度在 3 到 10 个字符密码', trigger: 'blur' }
           ],
         }
       }
