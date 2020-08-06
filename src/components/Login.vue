@@ -7,7 +7,7 @@
   <img id="imglogo" src="../assets/logo.png" alt="">
 </div>
     <div id="biaoge">
-      <el-form ref="form" :model="form" label-width="50px" :rules="rules" >
+      <el-form ref="loginFormRef" :model="form" label-width="50px" :rules="rules"  >
         <el-form-item prop="nameForm">
           <el-input  v-model="form.name1" width="50" prefix-icon="el-icon-user-solid" ></el-input>
         </el-form-item>
@@ -16,8 +16,8 @@
         </el-form-item>
       </el-form>
       <el-row id="button">
-        <el-button type="success" icon="el-icon-check">登录</el-button>
-        <el-button type="info" >重置</el-button>
+        <el-button type="success" icon="el-icon-check" @click="loginFormTest">登录</el-button>
+        <el-button type="info" @click="loginFormClick">重置</el-button>
 
       </el-row>
     </div>
@@ -58,6 +58,22 @@
     methods: {
       onSubmit() {
         console.log('submit!');
+      },
+      loginFormClick(){
+        console.log(this)
+        this.$refs.loginFormRef.resetFields()
+      },
+      loginFormTest(){
+        this.$refs.loginFormRef.validate((valid) =>{
+          // console.log(valid)
+          if(!valid) return;
+          const result= this.$http.post('login',this.form);
+          console.log("result")
+          console.log(result)
+
+
+        })
+
       }
     }
   }

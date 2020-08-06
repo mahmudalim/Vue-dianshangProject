@@ -7,7 +7,10 @@ import Element from 'element-ui'
 // import less from 'less-loader'
 import './assets/css/global.css'
 import './plugins/element.js'
+import axios from 'axios'
 
+Vue.prototype.$http=axios
+axios.defaults.baseURL='http://timemeetyou.com:8889/api/private/v1/'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
